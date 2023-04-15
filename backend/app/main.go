@@ -6,11 +6,20 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
+type User struct {
+	Name  string `json:"name" xml:"name"`
+	Email string `json:"email" xml:"email"`
+}
+
 func main() {
 	e := echo.New()
 
 	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Hello, World!")
+		u := &User{
+			Name:  "Jon",
+			Email: "jon@labstack.com",
+		}
+		return c.JSON(http.StatusOK, u)
 	})
 
 	e.Start(":8080")
