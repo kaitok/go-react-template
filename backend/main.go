@@ -17,7 +17,7 @@ func main() {
 	e.GET("/", func(c echo.Context) error {
 		u := &User{
 			Name:  "Jon",
-			Email: "jon@labstack.com",
+			Email: "jon@lafstack.com",
 		}
 		return c.JSON(http.StatusOK, u)
 	})
